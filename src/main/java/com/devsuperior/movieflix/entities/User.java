@@ -45,8 +45,7 @@ public class User implements UserDetails, Serializable{
 		inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 	
-	@OneToMany
-	@JoinColumn(name = "review_id")
+	@OneToMany(mappedBy = "user")
 	private List<Review> reviews = new ArrayList<>();
 	
 	public User() {
@@ -153,4 +152,5 @@ public class User implements UserDetails, Serializable{
 	public boolean isEnabled() {
 		return true;
 	}
+
 }
